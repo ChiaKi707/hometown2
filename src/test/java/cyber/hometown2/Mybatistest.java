@@ -10,18 +10,16 @@ import java.util.Collections;
 import java.util.List;
 
 @SpringBootTest
-class Hometown2ApplicationTests {
+public class Mybatistest {
 
     @Autowired
     private IUserInfoMapper iUserInfoMapper;
 
-
     @Test
-    void contextLoads() throws Exception {
+    public void Mybatistest1() throws Exception{
         List<UserInfo> userInfos = Collections.singletonList(iUserInfoMapper.getUserInfo());
         for (UserInfo user : userInfos) {
             System.out.println(user);
         }
     }
-
 }
