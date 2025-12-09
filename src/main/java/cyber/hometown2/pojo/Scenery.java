@@ -17,6 +17,6 @@ public class Scenery {
     private String image;//图片
     private String location;//地址
     private String price;//门票价格
-    private LocalDateTime createtime;//创建时间
+    private LocalDateTime creationtime;//创建时间
     private LocalDateTime updatetime;//修改时间
 }

@@ -1,6 +1,6 @@
 package cyber.hometown2;
 
-import cyber.hometown2.mapper.IUserInfoMapper;
+import cyber.hometown2.mapper.UserInfoMapper;
 import cyber.hometown2.pojo.UserInfo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +13,11 @@ import java.util.List;
 public class Mybatistest {
 
     @Autowired
-    private IUserInfoMapper iUserInfoMapper;
+    private UserInfoMapper UserInfoMapper;
 
     @Test
     public void Mybatistest1() throws Exception{
-        List<UserInfo> userInfos = Collections.singletonList(iUserInfoMapper.getUserInfo());
+        List<UserInfo> userInfos = Collections.singletonList(UserInfoMapper.getUserInfo());
         for (UserInfo user : userInfos) {
             System.out.println(user);
         }

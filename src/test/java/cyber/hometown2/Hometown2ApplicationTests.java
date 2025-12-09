@@ -18,7 +18,7 @@ class Hometown2ApplicationTests {
 
     @Test
     void contextLoads() throws Exception {
-        List<UserInfo> userInfos = Collections.singletonList(UserInfoMapper.getUserInfo());
+        List<UserInfo> userInfos = UserInfoMapper.getUsers();
         for (UserInfo user : userInfos) {
             System.out.println(user);
         }

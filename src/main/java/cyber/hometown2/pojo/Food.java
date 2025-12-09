@@ -16,4 +16,5 @@ public class Food {
     private String image;//图片
     private LocalDateTime creationDate;//创建时间
     private LocalDateTime updateDate;//修改时间
+
 }
