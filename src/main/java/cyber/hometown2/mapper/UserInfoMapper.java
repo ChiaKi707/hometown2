@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 @Mapper
-public interface IUserInfoMapper {
+public interface UserInfoMapper {
 
     @Select("select * from user")
     UserInfo getUserInfo();
