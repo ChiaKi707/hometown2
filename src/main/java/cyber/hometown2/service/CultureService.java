@@ -1,6 +1,7 @@
 package cyber.hometown2.service;
 
 import cyber.hometown2.pojo.Culture;
+import cyber.hometown2.pojo.Food;
 
 import java.util.List;
 
@@ -20,20 +21,27 @@ public interface CultureService {
     List<Culture> findAll();
 
     /**
+     * 条件查询
+     * @param name
+     * @return
+     */
+    List<Culture> serach(String name);
+
+    /**
      * 添加
      * @param c
      */
-    void addCulture(Culture c);
+    boolean addCulture(Culture c);
 
     /**
      * 修改
      * @param c
      */
-    void updateCulture(Culture c);
+    boolean updateCulture(Culture c);
 
     /**
      * 删除
      * @param id
      */
-    void deleteCulture(Integer id);
+    boolean deleteCulture(Integer id);
 }

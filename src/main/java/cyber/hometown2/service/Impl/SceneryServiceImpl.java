@@ -29,24 +29,33 @@ public class SceneryServiceImpl implements SceneryService {
         return list;
     }
 
+    @Override
+    public List<Scenery> serach(String name, String location) {
+        Scenery s = new Scenery();
+        s.setName(name);
+        s.setLocation(location);
+
+        return sceneryMapper.search(s);
+    }
+
     //添加
     @Override
-    public void addScenery(Scenery s) {
+    public boolean addScenery(Scenery s) {
         s.setCreationtime(LocalDateTime.now());
         s.setUpdatetime(LocalDateTime.now());
-        sceneryMapper.insertScenery(s);
+        return sceneryMapper.insertScenery(s) > 0;
     }
 
     //修改
     @Override
-    public void updateScenery(Scenery s) {
+    public boolean updateScenery(Scenery s) {
         s.setUpdatetime(LocalDateTime.now());
-        sceneryMapper.updateScenery(s);
+        return sceneryMapper.updateScenery(s) > 0;
     }
 
     //删除
     @Override
-    public void deleteScenery(Integer id) {
-        sceneryMapper.deleteScenery(id);
+    public boolean deleteScenery(Integer id) {
+        return sceneryMapper.deleteScenery(id) > 0;
     }
 }

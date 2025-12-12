@@ -2,6 +2,7 @@ package cyber.hometown2.service.Impl;
 
 import cyber.hometown2.mapper.CultureMapper;
 import cyber.hometown2.pojo.Culture;
+import cyber.hometown2.pojo.Scenery;
 import cyber.hometown2.service.CultureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,24 +29,32 @@ public class CultureServiceImpl implements CultureService {
         return list;
     }
 
+    @Override
+    public List<Culture> serach(String name) {
+        Culture c = new Culture();
+        c.setName(name);
+
+        return cultureMapper.search(c);
+    }
+
     //添加
     @Override
-    public void addCulture(Culture c) {
+    public boolean addCulture(Culture c) {
         c.setCreationDate(LocalDateTime.now());
         c.setUpdateDate(LocalDateTime.now());
-        cultureMapper.insertCulture(c);
+        return cultureMapper.insertCulture(c) > 0;
     }
 
     //修改
     @Override
-    public void updateCulture(Culture c) {
+    public boolean updateCulture(Culture c) {
         c.setUpdateDate(LocalDateTime.now());
-        cultureMapper.updateCulture(c);
+        return cultureMapper.updateCulture(c) > 0;
     }
 
     //删除
     @Override
-    public void deleteCulture(Integer id) {
-        cultureMapper.deleteCulture(id);
+    public boolean deleteCulture(Integer id) {
+        return cultureMapper.deleteCulture(id) > 0;
     }
 }

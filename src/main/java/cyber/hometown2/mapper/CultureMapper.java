@@ -24,26 +24,26 @@ public interface CultureMapper {
      * 条件查询文化列表
      * 可配合 MyBatis XML 进行动态 SQL
      */
-    //List<Culture> getCultureList(Culture queryParam);
+    List<Culture> search(Culture culture);
 
     /**
      * 新增美食
      */
     @Insert("INSERT INTO culture(name, description, image, creation_date, update_date) " +
             "VALUES(#{name}, #{description}, #{image}, #{creationDate}, #{updateDate})")
-    void insertCulture(Culture culture);
+    int insertCulture(Culture culture);
 
     /**
      * 根据ID删除美食
      */
     @Delete("DELETE FROM culture WHERE id = #{id}")
-    void deleteCulture(Integer id);
+    int deleteCulture(Integer id);
 
     /**
      * 修改美食
      */
     @Update("UPDATE culture SET name=#{name}, description=#{description}, image=#{image}, " +
             "update_date=#{updateDate} WHERE id=#{id}")
-    void updateCulture(Culture culture);
+    int updateCulture(Culture culture);
 
 }

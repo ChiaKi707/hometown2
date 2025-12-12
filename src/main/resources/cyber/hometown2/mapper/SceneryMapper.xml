@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cyber.hometown2.mapper.SceneryMapper">
+
+    <!--
+        新增：条件搜索的SQL实现
+        - id: 必须与接口中的方法名 "search" 匹配
+        - parameterType: 接收一个 Scenery 对象作为参数
+        - resultType: 返回 Scenery 对象列表
+    -->
+    <select id="search" parameterType="cyber.hometown2.pojo.Scenery" resultType="cyber.hometown2.pojo.Scenery">
+        SELECT * FROM scenery
+
+        <where>
+            <if test="name != null and name != ''">
+                AND name LIKE CONCAT('%', #{name}, '%')
+            </if>
+            <if test="location != null and location != ''">
+                AND location LIKE CONCAT('%', #{location}, '%')
+            </if>
+        </where>
+
+        <!-- 按更新时间降序 -->
+        ORDER BY updatetime DESC
+    </select>
+
+</mapper>

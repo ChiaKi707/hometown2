@@ -21,22 +21,29 @@ public interface SceneryMapper {
     List<Scenery> findAllScenery();
 
     /**
+     * 条件查询
+     * @param scenery
+     * @return
+     */
+    List<Scenery> search(Scenery scenery);
+
+    /**
      * 新增景点
      */
     @Insert("INSERT INTO scenery(name, description, image, location, price, createtime, updatetime) " +
             "VALUES(#{name}, #{description}, #{image}, #{location}, #{price}, #{createtime}, #{updatetime})")
-    void insertScenery(Scenery scenery);
+    int insertScenery(Scenery scenery);
 
     /**
      * 根据ID删除景点
      */
     @Delete("DELETE FROM scenery WHERE id = #{id}")
-    void deleteScenery(Integer id);
+    int deleteScenery(Integer id);
 
     /**
      * 修改景点
      */
     @Update("UPDATE scenery SET name=#{name}, description=#{description}, image=#{image}, " +
             "location=#{location}, price=#{price}, updatetime=#{updatetime} WHERE id=#{id}")
-    void updateScenery(Scenery scenery);
+    int updateScenery(Scenery scenery);
 }

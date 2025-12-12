@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cyber.hometown2.mapper.FoodMapper">
+
+    <!--
+        新增：根据条件（名称）搜索美食的SQL实现
+        - id: "search"，与接口方法名匹配
+        - parameterType: 接收一个 Food 对象
+        - resultType: 返回 Food 对象列表
+    -->
+    <select id="search" parameterType="cyber.hometown2.pojo.Food" resultType="cyber.hometown2.pojo.Food">
+        SELECT * FROM food
+        <where>
+            <!-- 如果传入的 Food 对象的 name 属性不为 null 且不为空字符串 -->
+            <if test="name != null and name != ''">
+                AND name LIKE CONCAT('%', #{name}, '%')
+            </if>
+
+            <!--
+            <if test="description != null and description != ''">
+                AND description LIKE CONCAT('%', #{description}, '%')
+            </if>
+            -->
+        </where>
+        <!-- 按更新日期降序排序 -->
+        ORDER BY update_date DESC
+    </select>
+
+</mapper>

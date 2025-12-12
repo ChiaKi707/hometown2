@@ -24,26 +24,26 @@ public interface FoodMapper {
      * 条件查询美食列表
      * 可配合 MyBatis XML 进行动态 SQL
      */
-    //List<Food> getFoodList(Food queryParam);
+    List<Food> search(Food food);
 
     /**
      * 新增美食
      */
     @Insert("INSERT INTO food(name, description, image, creation_date, update_date) " +
             "VALUES(#{name}, #{description}, #{image}, #{creationDate}, #{updateDate})")
-    void insertFood(Food food);
+    int insertFood(Food food);
 
     /**
      * 根据ID删除美食
      */
     @Delete("DELETE FROM food WHERE id = #{id}")
-    void deleteFood(Integer id);
+    int deleteFood(Integer id);
 
     /**
      * 修改美食
      */
     @Update("UPDATE food SET name=#{name}, description=#{description}, image=#{image}, " +
             "update_date=#{updateDate} WHERE id=#{id}")
-    void updateFood(Food food);
+    int updateFood(Food food);
 
 }

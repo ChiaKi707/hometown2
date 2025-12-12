@@ -20,20 +20,28 @@ public interface SceneryService {
     List<Scenery> findAll();
 
     /**
+     * 条件查询
+     * @param name
+     * @param location
+     * @return
+     */
+    List<Scenery> serach(String name, String location);
+
+    /**
      * 添加
      * @param s
      */
-    void addScenery(Scenery s);
+    boolean addScenery(Scenery s);
 
     /**
      * 修改
      * @param s
      */
-    void updateScenery(Scenery s);
+    boolean updateScenery(Scenery s);
 
     /**
      * id删除
      * @param id
      */
-    void deleteScenery(Integer id);
+    boolean deleteScenery(Integer id);
 }

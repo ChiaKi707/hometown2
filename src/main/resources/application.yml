@@ -15,5 +15,5 @@ mybatis:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     #驼峰命名
     map-underscore-to-camel-case: true
-  #??mapper文件存放路径
+  #mapper文件存放路径
   mapper-locations: classpath:cyber/hometown2/mapper/*.xml
