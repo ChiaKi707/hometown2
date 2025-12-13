@@ -15,11 +15,11 @@ public class Mybatistest {
     @Autowired
     private UserInfoMapper UserInfoMapper;
 
-    @Test
-    public void Mybatistest1() throws Exception{
-        List<UserInfo> userInfos = Collections.singletonList(UserInfoMapper.getUserInfo());
-        for (UserInfo user : userInfos) {
-            System.out.println(user);
-        }
-    }
+//    @Test
+//    public void Mybatistest1() throws Exception{
+//        List<UserInfo> userInfos = Collections.singletonList(UserInfoMapper.getUserInfo());
+//        for (UserInfo user : userInfos) {
+//            System.out.println(user);
+//        }
+//    }
 }

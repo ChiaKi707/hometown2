@@ -27,4 +27,13 @@ public class UserServiceImpl implements UserService {
         List<UserInfo> list = userInfoMapper.getUsers();
         return list;
     }
+    @Override
+    public UserInfo getUserIdandPassword(UserInfo user){
+        return userInfoMapper.getUserIdandPassword(user);
+    }
+
+    @Override
+    public boolean addUser(UserInfo user){
+        return userInfoMapper.insertUser(user);
+    }
 }

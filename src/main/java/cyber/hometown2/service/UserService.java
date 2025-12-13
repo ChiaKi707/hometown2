@@ -6,6 +6,30 @@ import org.apache.catalina.User;
 import java.util.List;
 
 public interface UserService {
+    /**
+     * 查询id是否存在
+     * @param id
+     * @return
+     */
     UserInfo getUserById(Integer id);
+
+    /**
+     * 返回所有用户信息
+     * @return
+     */
     List<UserInfo> getUsers();
+
+    /**
+     * 登录检查函数，查询是否有对应用户名+密码的用户
+     * @param user
+     * @return
+     */
+    UserInfo getUserIdandPassword(UserInfo user);
+
+    /**
+     * 新增用户，用于注册功能
+     * @param user
+     * @return
+     */
+    boolean addUser(UserInfo user);
 }
