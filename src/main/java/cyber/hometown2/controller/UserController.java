@@ -4,10 +4,7 @@ import cyber.hometown2.pojo.Result;
 import cyber.hometown2.pojo.UserInfo;
 import cyber.hometown2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,6 +28,12 @@ public class UserController {
     public Result<List<UserInfo>> getAllUser() {
         List<UserInfo> Userlist = userService.getUsers();
         return Result.success(Userlist);
+    }
+
+    @PostMapping("/updatauser")
+    public Result updateUser(@RequestBody UserInfo user){
+        userService.updateUser(user);
+        return Result.success();
     }
 
 }

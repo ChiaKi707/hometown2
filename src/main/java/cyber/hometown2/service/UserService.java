@@ -32,4 +32,11 @@ public interface UserService {
      * @return
      */
     boolean addUser(UserInfo user);
+
+    /**
+     * 修改用户名与密码
+     * @param user
+     * @return
+     */
+    boolean updateUser(UserInfo user);
 }

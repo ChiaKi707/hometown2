@@ -4,6 +4,7 @@ import cyber.hometown2.pojo.UserInfo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -22,6 +23,10 @@ public interface UserInfoMapper {
     @Insert("INSERT INTO user (username, password) " +
             "VALUES( #{username}, #{password})")
     boolean insertUser(UserInfo user);
+
+    @Update("UPDATE user SET username=#{username}, email=#{email} " +
+            "where userid=#{userid}")
+    boolean updateUser(UserInfo user);
 
 //    @Select("select * from user")
 //    UserInfo getUserInfo();
