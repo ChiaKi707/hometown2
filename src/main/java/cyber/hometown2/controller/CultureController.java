@@ -1,7 +1,7 @@
 package cyber.hometown2.controller;
 
 import cyber.hometown2.pojo.Culture;
-import cyber.hometown2.pojo.Food;
+import cyber.hometown2.pojo.PageResult;
 import cyber.hometown2.pojo.Result;
 import cyber.hometown2.service.CultureService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class CultureController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public Result<List<Culture>> getAllCulture() {
         List<Culture> cultures = cultureService.findAll();
         return Result.success(cultures);
@@ -73,6 +73,21 @@ public class CultureController {
         }else {
             return Result.error(404, "删除失败，未找到记录");
         }
+    }
+
+    /**
+     * 统一的分页列表查询接口
+     * - 不传 name: 查询所有美食（分页）
+     * - 传入 name: 按名称搜索美食（分页）
+     */
+    @GetMapping
+    public Result<PageResult<Culture>> list(
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+            @RequestParam(value = "pageSize", defaultValue = "3") Integer pageSize) {
+
+        PageResult<Culture> pageResult = cultureService.list(name, pageNum, pageSize);
+        return Result.success(pageResult);
     }
 
 }

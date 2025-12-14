@@ -1,5 +1,6 @@
 package cyber.hometown2.service;
 
+import cyber.hometown2.pojo.PageResult;
 import cyber.hometown2.pojo.Scenery;
 
 import java.util.List;
@@ -44,4 +45,15 @@ public interface SceneryService {
      * @param id
      */
     boolean deleteScenery(Integer id);
+
+    /**
+     * 分页查询
+     * @param name
+     * @param location
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    PageResult<Scenery> list(String name,String location, Integer pageNum, Integer pageSize);
+
 }

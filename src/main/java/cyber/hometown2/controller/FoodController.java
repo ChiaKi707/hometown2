@@ -1,8 +1,8 @@
 package cyber.hometown2.controller;
 
 import cyber.hometown2.pojo.Food;
+import cyber.hometown2.pojo.PageResult;
 import cyber.hometown2.pojo.Result;
-import cyber.hometown2.pojo.Scenery;
 import cyber.hometown2.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +26,7 @@ public class FoodController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public Result<List<Food>> getAllFood() {
         List<Food> foods = foodService.findAll();
         return Result.success(foods);
@@ -73,6 +73,21 @@ public class FoodController {
         }else {
             return Result.error(404, "删除失败，未找到记录");
         }
+    }
+
+    /**
+     * 统一的分页列表查询接口
+     * - 不传 name: 查询所有美食（分页）
+     * - 传入 name: 按名称搜索美食（分页）
+     */
+    @GetMapping
+    public Result<PageResult<Food>> list(
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+            @RequestParam(value = "pageSize", defaultValue = "3") Integer pageSize) {
+
+        PageResult<Food> pageResult = foodService.list(name, pageNum, pageSize);
+        return Result.success(pageResult);
     }
 
 }

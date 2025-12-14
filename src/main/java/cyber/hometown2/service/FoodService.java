@@ -2,6 +2,7 @@ package cyber.hometown2.service;
 
 
 import cyber.hometown2.pojo.Food;
+import cyber.hometown2.pojo.PageResult;
 import cyber.hometown2.pojo.Scenery;
 
 import java.util.List;
@@ -45,6 +46,15 @@ public interface FoodService {
      * @param id
      */
     boolean deleteFood(Integer id);
+
+    /**
+     * 分页查询
+     * @param name
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    PageResult<Food> list(String name, Integer pageNum, Integer pageSize);
 
 
 }

@@ -1,5 +1,6 @@
 package cyber.hometown2.controller;
 
+import cyber.hometown2.pojo.PageResult;
 import cyber.hometown2.pojo.Scenery;
 import cyber.hometown2.pojo.Result;
 import cyber.hometown2.service.SceneryService;
@@ -25,7 +26,7 @@ public class SceneryController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public Result<List<Scenery>> getAllScenery() {
         List<Scenery> scenerys = sceneryService.findAll();
         return Result.success(scenerys);
@@ -73,6 +74,22 @@ public class SceneryController {
         }else {
             return Result.error(404, "删除失败，未找到记录");
         }
+    }
+
+    /**
+     * 统一的分页列表查询接口
+     * - 不传 name: 查询所有美食（分页）
+     * - 传入 name: 按名称搜索美食（分页）
+     */
+    @GetMapping
+    public Result<PageResult<Scenery>> list(
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "location", required = false) String location,
+            @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+            @RequestParam(value = "pageSize", defaultValue = "3") Integer pageSize) {
+
+        PageResult<Scenery> pageResult = sceneryService.list(name, location, pageNum, pageSize);
+        return Result.success(pageResult);
     }
 
 }

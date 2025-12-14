@@ -23,7 +23,7 @@
         </where>
 
         <!-- 按更新时间降序 -->
-        ORDER BY updatetime DESC
+        ORDER BY update_date DESC
     </select>
 
 </mapper>
