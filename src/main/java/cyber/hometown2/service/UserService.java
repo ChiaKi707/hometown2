@@ -1,7 +1,6 @@
 package cyber.hometown2.service;
 
 import cyber.hometown2.pojo.UserInfo;
-import org.apache.catalina.User;
 
 import java.util.List;
 
@@ -39,4 +38,14 @@ public interface UserService {
      * @return
      */
     boolean updateUser(UserInfo user);
+
+    /**
+     * 修改密码
+     *
+     * @param userId
+     * @param oldPassword
+     * @param newPassword
+     * @return
+     */
+    boolean changePassword(Integer userId, String oldPassword, String newPassword);
 }

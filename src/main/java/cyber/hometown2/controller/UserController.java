@@ -1,5 +1,6 @@
 package cyber.hometown2.controller;
 
+import cyber.hometown2.DTO.ChangePasswordDTO;
 import cyber.hometown2.pojo.Result;
 import cyber.hometown2.pojo.UserInfo;
 import cyber.hometown2.service.UserService;
@@ -35,5 +36,21 @@ public class UserController {
         userService.updateUser(user);
         return Result.success();
     }
+
+    @PostMapping("/changePassword")
+    public Result changePassword(@RequestBody ChangePasswordDTO dto) {
+
+        boolean issuccess = userService.changePassword(
+                dto.getUserId(),
+                dto.getOldPassword(),
+                dto.getNewPassword()
+        );
+
+        if(issuccess) {
+            return Result.success();
+        }
+        return Result.error("旧密码不正确");
+    }
+
 
 }

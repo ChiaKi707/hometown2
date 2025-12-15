@@ -39,4 +39,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean updateUser(UserInfo user){return userInfoMapper.updateUser(user);}
+
+    @Override
+    public boolean changePassword(Integer userId, String oldPassword, String newPassword) {
+
+        UserInfo user = userInfoMapper.getUserById(userId);
+        if (user == null) {
+//            throw new RuntimeException("用户不存在");
+            return false;
+        }
+
+        if (!user.getPassword().equals(oldPassword)) {
+//            throw new RuntimeException("原密码错误");
+            return false;
+        }
+
+        return userInfoMapper.updatePassword(userId, newPassword);
+    }
+
 }
