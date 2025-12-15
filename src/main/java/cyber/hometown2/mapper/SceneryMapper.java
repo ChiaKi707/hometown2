@@ -30,8 +30,8 @@ public interface SceneryMapper {
     /**
      * 新增景点
      */
-    @Insert("INSERT INTO scenery(name, description, image, location, price, createTime, updateTime) " +
-            "VALUES(#{name}, #{description}, #{image}, #{location}, #{price}, #{createTime}, #{updateTime})")
+    @Insert("INSERT INTO scenery(name, description, image, location, price, creationTime, updateTime) " +
+            "VALUES(#{name}, #{description}, #{image}, #{location}, #{price}, #{creationTime}, #{updateTime})")
     int insertScenery(Scenery scenery);
 
     /**
