@@ -43,15 +43,15 @@ public class SceneryServiceImpl implements SceneryService {
     //添加
     @Override
     public boolean addScenery(Scenery s) {
-        s.setCreationtime(LocalDateTime.now());
-        s.setUpdatetime(LocalDateTime.now());
+        s.setCreationTime(LocalDateTime.now());
+        s.setUpdateTime(LocalDateTime.now());
         return sceneryMapper.insertScenery(s) > 0;
     }
 
     //修改
     @Override
     public boolean updateScenery(Scenery s) {
-        s.setUpdatetime(LocalDateTime.now());
+        s.setUpdateTime(LocalDateTime.now());
         return sceneryMapper.updateScenery(s) > 0;
     }
 

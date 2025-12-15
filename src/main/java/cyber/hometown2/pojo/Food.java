@@ -14,7 +14,7 @@ public class Food {
     private String name;//美食名称
     private String description;//简介
     private String image;//图片
-    private LocalDateTime creationDate;//创建时间
-    private LocalDateTime updateDate;//修改时间
+    private LocalDateTime creationTime;//创建时间
+    private LocalDateTime updateTime;//修改时间
 
 }

@@ -30,8 +30,8 @@ public interface SceneryMapper {
     /**
      * 新增景点
      */
-    @Insert("INSERT INTO scenery(name, description, image, location, price, create_date, update_date) " +
-            "VALUES(#{name}, #{description}, #{image}, #{location}, #{price}, #{createtime}, #{updatetime})")
+    @Insert("INSERT INTO scenery(name, description, image, location, price, createTime, updateTime) " +
+            "VALUES(#{name}, #{description}, #{image}, #{location}, #{price}, #{createTime}, #{updateTime})")
     int insertScenery(Scenery scenery);
 
     /**
@@ -44,6 +44,6 @@ public interface SceneryMapper {
      * 修改景点
      */
     @Update("UPDATE scenery SET name=#{name}, description=#{description}, image=#{image}, " +
-            "location=#{location}, price=#{price}, updatetime=#{updatetime} WHERE id=#{id}")
+            "location=#{location}, price=#{price}, updateTime=#{updateTime} WHERE id=#{id}")
     int updateScenery(Scenery scenery);
 }

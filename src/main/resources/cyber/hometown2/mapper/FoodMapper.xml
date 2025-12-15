@@ -24,8 +24,9 @@
             </if>
             -->
         </where>
+        ORDER BY id ASC
         <!-- 按更新日期降序排序 -->
-        ORDER BY update_date DESC
+        <!--ORDER BY updateTime DESC-->
     </select>
 
 </mapper>

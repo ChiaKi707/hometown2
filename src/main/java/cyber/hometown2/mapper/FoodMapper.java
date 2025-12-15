@@ -29,8 +29,8 @@ public interface FoodMapper {
     /**
      * 新增美食
      */
-    @Insert("INSERT INTO food(name, description, image, creation_date, update_date) " +
-            "VALUES(#{name}, #{description}, #{image}, #{creationDate}, #{updateDate})")
+    @Insert("INSERT INTO food(name, description, image, creationTime, updateTime) " +
+            "VALUES(#{name}, #{description}, #{image}, #{creationTime}, #{updateTime})")
     int insertFood(Food food);
 
     /**
@@ -43,7 +43,7 @@ public interface FoodMapper {
      * 修改美食
      */
     @Update("UPDATE food SET name=#{name}, description=#{description}, image=#{image}, " +
-            "update_date=#{updateDate} WHERE id=#{id}")
+            "updateTime=#{updateTime} WHERE id=#{id}")
     int updateFood(Food food);
 
 }

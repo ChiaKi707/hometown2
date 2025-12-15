@@ -14,6 +14,6 @@ public class Culture {
     private String name;
     private String description;
     private String image;
-    private LocalDateTime creationDate;
-    private LocalDateTime updateDate;
+    private LocalDateTime creationTime;
+    private LocalDateTime updateTime;
 }

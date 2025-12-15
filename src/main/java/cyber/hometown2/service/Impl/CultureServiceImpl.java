@@ -43,15 +43,15 @@ public class CultureServiceImpl implements CultureService {
     //添加
     @Override
     public boolean addCulture(Culture c) {
-        c.setCreationDate(LocalDateTime.now());
-        c.setUpdateDate(LocalDateTime.now());
+        c.setCreationTime(LocalDateTime.now());
+        c.setUpdateTime(LocalDateTime.now());
         return cultureMapper.insertCulture(c) > 0;
     }
 
     //修改
     @Override
     public boolean updateCulture(Culture c) {
-        c.setUpdateDate(LocalDateTime.now());
+        c.setUpdateTime(LocalDateTime.now());
         return cultureMapper.updateCulture(c) > 0;
     }
 

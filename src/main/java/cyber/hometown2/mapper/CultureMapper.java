@@ -29,8 +29,8 @@ public interface CultureMapper {
     /**
      * 新增美食
      */
-    @Insert("INSERT INTO culture(name, description, image, creation_date, update_date) " +
-            "VALUES(#{name}, #{description}, #{image}, #{creationDate}, #{updateDate})")
+    @Insert("INSERT INTO culture(name, description, image, creationTime, updateTime) " +
+            "VALUES(#{name}, #{description}, #{image}, #{creationTime}, #{updateTime})")
     int insertCulture(Culture culture);
 
     /**
@@ -43,7 +43,7 @@ public interface CultureMapper {
      * 修改美食
      */
     @Update("UPDATE culture SET name=#{name}, description=#{description}, image=#{image}, " +
-            "update_date=#{updateDate} WHERE id=#{id}")
+            "updateTime=#{updateTime} WHERE id=#{id}")
     int updateCulture(Culture culture);
 
 }

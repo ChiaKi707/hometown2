@@ -42,15 +42,15 @@ public class FoodServiceImpl implements FoodService {
     //添加
     @Override
     public boolean addFood(Food food) {
-        food.setCreationDate(LocalDateTime.now());
-        food.setUpdateDate(LocalDateTime.now());
+        food.setCreationTime(LocalDateTime.now());
+        food.setUpdateTime(LocalDateTime.now());
         return foodMapper.insertFood(food) > 0;
     }
 
     //修改
     @Override
     public boolean updateFood(Food food) {
-        food.setUpdateDate(LocalDateTime.now());
+        food.setUpdateTime(LocalDateTime.now());
         return foodMapper.updateFood(food) > 0;
     }
 
