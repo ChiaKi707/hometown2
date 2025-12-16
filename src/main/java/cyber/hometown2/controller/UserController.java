@@ -80,7 +80,4 @@ public class UserController {
         }
     }
 
-    @PutMapping
-    public Result<UserInfo> 
-
 }
