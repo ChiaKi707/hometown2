@@ -1,5 +1,6 @@
 package cyber.hometown2.service;
 
+import cyber.hometown2.pojo.PageResult;
 import cyber.hometown2.pojo.UserInfo;
 
 import java.util.List;
@@ -17,6 +18,8 @@ public interface UserService {
      * @return
      */
     List<UserInfo> getUsers();
+
+    List<UserInfo> search(String name);
 
     /**
      * 登录检查函数，查询是否有对应用户名+密码的用户
@@ -48,4 +51,20 @@ public interface UserService {
      * @return
      */
     boolean changePassword(Integer userId, String oldPassword, String newPassword);
+
+    /**
+     * 分页查询
+     * @param name
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    public PageResult<UserInfo> list(String name, Integer pageNum, Integer pageSize);
+
+    /**
+     *删除用户
+     * @param id
+     * @return
+     */
+    boolean deleteUser(Integer id);
 }

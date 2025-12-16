@@ -1,5 +1,6 @@
 package cyber.hometown2.mapper;
 
+import cyber.hometown2.pojo.Food;
 import cyber.hometown2.pojo.UserInfo;
 import org.apache.ibatis.annotations.*;
 
@@ -29,7 +30,15 @@ public interface UserInfoMapper {
     boolean updatePassword(@Param("userId") Integer userId,
                        @Param("newPassword") String newPassword);
 
+    /**
+     * 条件查询
+     * @param user
+     * @return
+     */
+    List<UserInfo> search(UserInfo user);
 
+    @Delete("DELETE FROM user WHERE userid = #{id}")
+    boolean deleteUser(Integer id);
 
 //    @Select("select * from user")
 //    UserInfo getUserInfo();

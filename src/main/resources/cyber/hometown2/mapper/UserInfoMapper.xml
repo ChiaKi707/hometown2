@@ -3,5 +3,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="cyber.hometown2.mapper.UserInfoMapper">
+    <select id="search" parameterType="cyber.hometown2.pojo.UserInfo" resultType="cyber.hometown2.pojo.UserInfo">
+        SELECT * FROM user
+        <where>
+            <!-- 如果传入的 user 对象的 username 属性不为 null 且不为空字符串 -->
+            <if test="username != null and username != ''">
+                AND name LIKE CONCAT('%', #{username}, '%')
+            </if>
 
+        </where>
+    </select>
 </mapper>
