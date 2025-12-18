@@ -22,7 +22,7 @@ public interface UserInfoMapper {
             "VALUES( #{username}, #{password})")
     boolean insertUser(UserInfo user);
 
-    @Update("UPDATE user SET username=#{username}, email=#{email} " +
+    @Update("UPDATE user SET username=#{username}, email=#{email}, avatarid=#{avatarid} " +
             "where userid=#{userid}")
     boolean updateUser(UserInfo user);
 
